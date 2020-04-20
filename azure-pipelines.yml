@@ -14,8 +14,8 @@ variables:
   TreatWarningsAsErrors: true
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
   BuildConfiguration: Release
-  #codecov_token: # Get a new one from https://codecov.io/
-  #ci_feed: # Azure Artifacts feed name
+  codecov_token: '15b9c15e-3fe8-430e-8320-d8bf6daf116f'
+  ci_feed: 'c543bf42-56cb-4c53-86c0-f735919f1160/de60d10f-159c-4dd8-9e7f-127bea291932'
   NUGET_PACKAGES: $(Agent.TempDirectory)/.nuget/packages
 
 jobs:
