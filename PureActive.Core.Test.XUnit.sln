@@ -1,0 +1,218 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29322.22
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1CE9670B-D5FF-46A7-9D00-24E70E6ED48B}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		azure-pipelines.yml = azure-pipelines.yml
+		CONTRIBUTING.md = CONTRIBUTING.md
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.rsp = Directory.Build.rsp
+		Directory.Build.targets = Directory.Build.targets
+		global.json = global.json
+		init.cmd = init.cmd
+		init.ps1 = init.ps1
+		LICENSE = LICENSE
+		nuget.config = nuget.config
+		README.md = README.md
+		strongname.snk = strongname.snk
+		stylecop.json = stylecop.json
+		version.json = version.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9E154A29-1796-4B85-BD81-B6A385D8FF71}"
+	ProjectSection(SolutionItems) = preProject
+		src\.editorconfig = src\.editorconfig
+		src\Directory.Build.props = src\Directory.Build.props
+		src\Directory.Build.targets = src\Directory.Build.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{36CCE840-6FE5-4DB9-A8D5-8CF3CB6D342A}"
+	ProjectSection(SolutionItems) = preProject
+		test\.editorconfig = test\.editorconfig
+		test\Directory.Build.props = test\Directory.Build.props
+		test\Directory.Build.targets = test\Directory.Build.targets
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PureActive.Core.Test.XUnit", "src\PureActive.Core.Test.XUnit\PureActive.Core.Test.XUnit.csproj", "{A816051A-6F25-4085-AF46-DF3C54480170}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "eng", "eng", "{050CAD5C-20F3-483D-A89B-CFC6A2AD2AC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{8CDD279B-8FAC-4EB9-A367-1FF087C7E3E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "azure", "azure", "{13F1DE8C-5DE1-4E90-9733-892B89DED438}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines\build.yml = azure-pipelines\build.yml
+		azure-pipelines\Convert-PDB.ps1 = azure-pipelines\Convert-PDB.ps1
+		azure-pipelines\Darwin.runsettings = azure-pipelines\Darwin.runsettings
+		azure-pipelines\dotnet.yml = azure-pipelines\dotnet.yml
+		azure-pipelines\Get-nbgv.ps1 = azure-pipelines\Get-nbgv.ps1
+		azure-pipelines\Get-NuGetTool.ps1 = azure-pipelines\Get-NuGetTool.ps1
+		azure-pipelines\Get-ProcDump.ps1 = azure-pipelines\Get-ProcDump.ps1
+		azure-pipelines\Get-TempToolsPath.ps1 = azure-pipelines\Get-TempToolsPath.ps1
+		azure-pipelines\install-dependencies.yml = azure-pipelines\install-dependencies.yml
+		azure-pipelines\justnugetorg.nuget.config = azure-pipelines\justnugetorg.nuget.config
+		azure-pipelines\Linux.runsettings = azure-pipelines\Linux.runsettings
+		azure-pipelines\publish-codecoverage.yml = azure-pipelines\publish-codecoverage.yml
+		azure-pipelines\publish-deployables.yml = azure-pipelines\publish-deployables.yml
+		azure-pipelines\Set-EnvVars.ps1 = azure-pipelines\Set-EnvVars.ps1
+		azure-pipelines\Windows_NT.runsettings = azure-pipelines\Windows_NT.runsettings
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{30354515-52ED-42C9-A00E-868A56E7BA0C}"
+	ProjectSection(SolutionItems) = preProject
+		tools\Install-DotNetSdk.ps1 = tools\Install-DotNetSdk.ps1
+		tools\Install-NuGetCredProvider.ps1 = tools\Install-NuGetCredProvider.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{F7083994-EBA0-47BF-A63D-930BBF28F777}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build.yml = .github\workflows\build.yml
+		.github\workflows\Linux.runsettings = .github\workflows\Linux.runsettings
+		.github\workflows\macOS.runsettings = .github\workflows\macOS.runsettings
+		.github\workflows\Windows.runsettings = .github\workflows\Windows.runsettings
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "artifacts", "artifacts", "{41DC937C-D723-44F6-B77D-B10E283E45B2}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines\artifacts\_all.ps1 = azure-pipelines\artifacts\_all.ps1
+		azure-pipelines\artifacts\_pipelines.ps1 = azure-pipelines\artifacts\_pipelines.ps1
+		azure-pipelines\artifacts\_stage_all.ps1 = azure-pipelines\artifacts\_stage_all.ps1
+		azure-pipelines\artifacts\build_logs.ps1 = azure-pipelines\artifacts\build_logs.ps1
+		azure-pipelines\artifacts\coverageResults.ps1 = azure-pipelines\artifacts\coverageResults.ps1
+		azure-pipelines\artifacts\deployables.ps1 = azure-pipelines\artifacts\deployables.ps1
+		azure-pipelines\artifacts\projectAssetsJson.ps1 = azure-pipelines\artifacts\projectAssetsJson.ps1
+		azure-pipelines\artifacts\symbols.ps1 = azure-pipelines\artifacts\symbols.ps1
+		azure-pipelines\artifacts\testResults.ps1 = azure-pipelines\artifacts\testResults.ps1
+		azure-pipelines\artifacts\Variables.ps1 = azure-pipelines\artifacts\Variables.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "variables", "variables", "{190C8448-218C-4212-AABA-9FA0AB94F0D9}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines\variables\_all.ps1 = azure-pipelines\variables\_all.ps1
+		azure-pipelines\variables\_pipelines.ps1 = azure-pipelines\variables\_pipelines.ps1
+		azure-pipelines\variables\DotNetSdkVersion.ps1 = azure-pipelines\variables\DotNetSdkVersion.ps1
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PureActive.Core.Test.XUnit.Windows.UnitTests", "test\PureActive.Core.Test.XUnit.Windows.UnitTests\PureActive.Core.Test.XUnit.Windows.UnitTests.csproj", "{ED42177B-3D6B-4508-B75A-D1263A2DEBBA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PureActive.Core.Test.XUnit.Windows.IntegrationTests", "test\PureActive.Core.Test.XUnit.Windows.IntegrationTests\PureActive.Core.Test.XUnit.Windows.IntegrationTests.csproj", "{26F30436-4325-4D8E-A0A9-DA8A14F7E9DD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PureActive.Core.Test.XUnit.Android.IntegrationTests", "test\PureActive.Core.Test.XUnit.Android.IntegrationTests\PureActive.Core.Test.XUnit.Android.IntegrationTests.csproj", "{DB918E9C-092B-480E-A49A-0B9CB24E17A0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PureActive.Core.Test.XUnit.Android.UnitTests", "test\PureActive.Core.Test.XUnit.Android.UnitTests\PureActive.Core.Test.XUnit.Android.UnitTests.csproj", "{D576AC43-F119-444E-919D-CEF9BAB9CC26}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PureActive.Core.Test.XUnit.Foo.IntegrationTests", "test\PureActive.Core.Test.XUnit.Foo.IntegrationTests\PureActive.Core.Test.XUnit.Foo.IntegrationTests.csproj", "{1BA19FD0-1F73-4FE2-804E-53EE99888007}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PureActive.Core.Test.XUnit.Foo.Tests", "test\PureActive.Core.Test.XUnit.Foo.Tests\PureActive.Core.Test.XUnit.Foo.Tests.csproj", "{F1789F90-5FA0-4BB8-8D5A-3BCD52B0416F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PureActive.Core.Test.XUnit.Foo.UnitTests", "test\PureActive.Core.Test.XUnit.Foo.UnitTests\PureActive.Core.Test.XUnit.Foo.UnitTests.csproj", "{A345E71D-8457-4759-9E8A-B409395CA144}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PureActive.Core.Test.XUnit.IOS.IntegrationTests", "test\PureActive.Core.Test.XUnit.IOS.IntegrationTests\PureActive.Core.Test.XUnit.IOS.IntegrationTests.csproj", "{A3DB278D-55EF-466B-81F0-9AEEB3CBD433}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PureActive.Core.Test.XUnit.IOS.UnitTests", "test\PureActive.Core.Test.XUnit.IOS.UnitTests\PureActive.Core.Test.XUnit.IOS.UnitTests.csproj", "{86D52EDB-C0C9-4512-88B1-90898D176CBE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PureActive.Core.Test.XUnit.Linux.IntegrationTests", "test\PureActive.Core.Test.XUnit.Linux.IntegrationTests\PureActive.Core.Test.XUnit.Linux.IntegrationTests.csproj", "{715CB3D1-B445-4BD8-B769-7E6F1A0510F6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PureActive.Core.Test.XUnit.Linux.UnitTests", "test\PureActive.Core.Test.XUnit.Linux.UnitTests\PureActive.Core.Test.XUnit.Linux.UnitTests.csproj", "{6D9D0831-6796-4425-A6DF-0C73210DBD39}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PureActive.Core.Test.XUnit.MacOS.IntegrationTests", "test\PureActive.Core.Test.XUnit.MacOS.IntegrationTests\PureActive.Core.Test.XUnit.MacOS.IntegrationTests.csproj", "{7EC7AC32-4310-445A-8F12-63C945BB4357}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PureActive.Core.Test.XUnit.MacOS.UnitTests", "test\PureActive.Core.Test.XUnit.MacOS.UnitTests\PureActive.Core.Test.XUnit.MacOS.UnitTests.csproj", "{9217DF19-DF45-4A8D-9189-B704FBB7CE3E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A816051A-6F25-4085-AF46-DF3C54480170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A816051A-6F25-4085-AF46-DF3C54480170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A816051A-6F25-4085-AF46-DF3C54480170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A816051A-6F25-4085-AF46-DF3C54480170}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED42177B-3D6B-4508-B75A-D1263A2DEBBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED42177B-3D6B-4508-B75A-D1263A2DEBBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED42177B-3D6B-4508-B75A-D1263A2DEBBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED42177B-3D6B-4508-B75A-D1263A2DEBBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26F30436-4325-4D8E-A0A9-DA8A14F7E9DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26F30436-4325-4D8E-A0A9-DA8A14F7E9DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26F30436-4325-4D8E-A0A9-DA8A14F7E9DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26F30436-4325-4D8E-A0A9-DA8A14F7E9DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB918E9C-092B-480E-A49A-0B9CB24E17A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB918E9C-092B-480E-A49A-0B9CB24E17A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB918E9C-092B-480E-A49A-0B9CB24E17A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB918E9C-092B-480E-A49A-0B9CB24E17A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D576AC43-F119-444E-919D-CEF9BAB9CC26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D576AC43-F119-444E-919D-CEF9BAB9CC26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D576AC43-F119-444E-919D-CEF9BAB9CC26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D576AC43-F119-444E-919D-CEF9BAB9CC26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BA19FD0-1F73-4FE2-804E-53EE99888007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BA19FD0-1F73-4FE2-804E-53EE99888007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BA19FD0-1F73-4FE2-804E-53EE99888007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BA19FD0-1F73-4FE2-804E-53EE99888007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1789F90-5FA0-4BB8-8D5A-3BCD52B0416F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1789F90-5FA0-4BB8-8D5A-3BCD52B0416F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1789F90-5FA0-4BB8-8D5A-3BCD52B0416F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1789F90-5FA0-4BB8-8D5A-3BCD52B0416F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A345E71D-8457-4759-9E8A-B409395CA144}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A345E71D-8457-4759-9E8A-B409395CA144}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A345E71D-8457-4759-9E8A-B409395CA144}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A345E71D-8457-4759-9E8A-B409395CA144}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3DB278D-55EF-466B-81F0-9AEEB3CBD433}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3DB278D-55EF-466B-81F0-9AEEB3CBD433}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3DB278D-55EF-466B-81F0-9AEEB3CBD433}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3DB278D-55EF-466B-81F0-9AEEB3CBD433}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86D52EDB-C0C9-4512-88B1-90898D176CBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86D52EDB-C0C9-4512-88B1-90898D176CBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86D52EDB-C0C9-4512-88B1-90898D176CBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86D52EDB-C0C9-4512-88B1-90898D176CBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{715CB3D1-B445-4BD8-B769-7E6F1A0510F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{715CB3D1-B445-4BD8-B769-7E6F1A0510F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{715CB3D1-B445-4BD8-B769-7E6F1A0510F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{715CB3D1-B445-4BD8-B769-7E6F1A0510F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D9D0831-6796-4425-A6DF-0C73210DBD39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D9D0831-6796-4425-A6DF-0C73210DBD39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D9D0831-6796-4425-A6DF-0C73210DBD39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D9D0831-6796-4425-A6DF-0C73210DBD39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EC7AC32-4310-445A-8F12-63C945BB4357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EC7AC32-4310-445A-8F12-63C945BB4357}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EC7AC32-4310-445A-8F12-63C945BB4357}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EC7AC32-4310-445A-8F12-63C945BB4357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9217DF19-DF45-4A8D-9189-B704FBB7CE3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9217DF19-DF45-4A8D-9189-B704FBB7CE3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9217DF19-DF45-4A8D-9189-B704FBB7CE3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9217DF19-DF45-4A8D-9189-B704FBB7CE3E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A816051A-6F25-4085-AF46-DF3C54480170} = {9E154A29-1796-4B85-BD81-B6A385D8FF71}
+		{8CDD279B-8FAC-4EB9-A367-1FF087C7E3E6} = {050CAD5C-20F3-483D-A89B-CFC6A2AD2AC1}
+		{13F1DE8C-5DE1-4E90-9733-892B89DED438} = {050CAD5C-20F3-483D-A89B-CFC6A2AD2AC1}
+		{30354515-52ED-42C9-A00E-868A56E7BA0C} = {050CAD5C-20F3-483D-A89B-CFC6A2AD2AC1}
+		{F7083994-EBA0-47BF-A63D-930BBF28F777} = {8CDD279B-8FAC-4EB9-A367-1FF087C7E3E6}
+		{41DC937C-D723-44F6-B77D-B10E283E45B2} = {13F1DE8C-5DE1-4E90-9733-892B89DED438}
+		{190C8448-218C-4212-AABA-9FA0AB94F0D9} = {13F1DE8C-5DE1-4E90-9733-892B89DED438}
+		{ED42177B-3D6B-4508-B75A-D1263A2DEBBA} = {36CCE840-6FE5-4DB9-A8D5-8CF3CB6D342A}
+		{26F30436-4325-4D8E-A0A9-DA8A14F7E9DD} = {36CCE840-6FE5-4DB9-A8D5-8CF3CB6D342A}
+		{DB918E9C-092B-480E-A49A-0B9CB24E17A0} = {36CCE840-6FE5-4DB9-A8D5-8CF3CB6D342A}
+		{D576AC43-F119-444E-919D-CEF9BAB9CC26} = {36CCE840-6FE5-4DB9-A8D5-8CF3CB6D342A}
+		{1BA19FD0-1F73-4FE2-804E-53EE99888007} = {36CCE840-6FE5-4DB9-A8D5-8CF3CB6D342A}
+		{F1789F90-5FA0-4BB8-8D5A-3BCD52B0416F} = {36CCE840-6FE5-4DB9-A8D5-8CF3CB6D342A}
+		{A345E71D-8457-4759-9E8A-B409395CA144} = {36CCE840-6FE5-4DB9-A8D5-8CF3CB6D342A}
+		{A3DB278D-55EF-466B-81F0-9AEEB3CBD433} = {36CCE840-6FE5-4DB9-A8D5-8CF3CB6D342A}
+		{86D52EDB-C0C9-4512-88B1-90898D176CBE} = {36CCE840-6FE5-4DB9-A8D5-8CF3CB6D342A}
+		{715CB3D1-B445-4BD8-B769-7E6F1A0510F6} = {36CCE840-6FE5-4DB9-A8D5-8CF3CB6D342A}
+		{6D9D0831-6796-4425-A6DF-0C73210DBD39} = {36CCE840-6FE5-4DB9-A8D5-8CF3CB6D342A}
+		{7EC7AC32-4310-445A-8F12-63C945BB4357} = {36CCE840-6FE5-4DB9-A8D5-8CF3CB6D342A}
+		{9217DF19-DF45-4A8D-9189-B704FBB7CE3E} = {36CCE840-6FE5-4DB9-A8D5-8CF3CB6D342A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3944F6A-384B-4B0F-B93F-3BD513DC57BD}
+	EndGlobalSection
+EndGlobal
