@@ -13,9 +13,9 @@
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)\strongname.snk</AssemblyOriginatorKeyFile>
 
-    <Company>Steve Bush</Company>
+    <Company>BushChang Corporation</Company>
     <Authors>Steve Bush</Authors>
-    <Copyright>© Steve Bush. All rights reserved.</Copyright>
+    <Copyright>Copyright (c) BushChang Corporation. All rights reserved.</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
