@@ -15,7 +15,6 @@
 namespace PureActive.Core.Test.XUnit.Android.IntegrationTests
 {
     using System;
-    using System.Collections.Generic;
     using FluentAssertions;
     using PureActive.Core.Test.XUnit.Extensions;
     using PureActive.Core.Test.XUnit.Traits;
@@ -40,15 +39,6 @@ namespace PureActive.Core.Test.XUnit.Android.IntegrationTests
         public void AndroidIntegrationTests_HasPlatformTraitAttribute()
         {
             this.testType.HasPlatformTraitAttribute().Should().BeTrue();
-        }
-
-        [Fact]
-        public void AndroidIntegrationTests_GetPlatformTraits()
-        {
-            foreach (KeyValuePair<string, string> pair in this.testType.GetPlatformTraits())
-            {
-                this.testOutputHelper.WriteLine($"{pair.Key}: {pair.Value}");
-            }
         }
 
         [Fact]

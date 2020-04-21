@@ -17,10 +17,8 @@ namespace PureActive.Core.Test.XUnit.Extensions
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Reflection;
     using PureActive.Core.Test.XUnit.Traits;
-    using Xunit.Sdk;
 
     /// <summary>
     /// Class TypeExtensions.
@@ -49,25 +47,86 @@ namespace PureActive.Core.Test.XUnit.Extensions
             { typeof(ushort), "ushort" },
         };
 
-        /// <summary>Gets the platform traits.</summary>
+        /// <summary>Gets the operating system trait.</summary>
         /// <param name="type">The type.</param>
-        /// <returns>IEnumerable&lt;KeyValuePair&lt;System.String, System.String&gt;&gt;.</returns>
-        public static IEnumerable<KeyValuePair<string, string>> GetPlatformTraits(this Type type)
+        /// <returns>TraitOperatingSystem.</returns>
+        /// <exception cref="ArgumentNullException">type of class.</exception>
+        public static TraitOperatingSystem GetTraitOperatingSystem(this Type type)
         {
-            CustomAttributeData platformTraitAttribute = CustomAttributeData.GetCustomAttributes(type).FirstOrDefault(cad =>
-                cad.AttributeType.Equals(typeof(PlatformTraitAttribute)));
-
-            if (platformTraitAttribute is null)
+            if (type == null)
             {
-                yield break;
+                throw new ArgumentNullException(nameof(type));
             }
 
-            var platformTraitDiscovery = new PlatformTraitDiscoverer();
+            var assemblyNamespace = type.GetAssemblyNamespace();
 
-            foreach (KeyValuePair<string, string> pair in platformTraitDiscovery.GetTraits(new ReflectionAttributeInfo(platformTraitAttribute)))
+            if (assemblyNamespace.Contains(".Windows", StringComparison.OrdinalIgnoreCase))
             {
-                yield return pair;
+                return TraitOperatingSystem.Windows;
             }
+
+            if (assemblyNamespace.Contains(".MacOS", StringComparison.OrdinalIgnoreCase))
+            {
+                return TraitOperatingSystem.MacOS;
+            }
+
+            if (assemblyNamespace.Contains(".OSX", StringComparison.OrdinalIgnoreCase))
+            {
+                return TraitOperatingSystem.MacOS;
+            }
+
+            if (assemblyNamespace.Contains(".Android", StringComparison.OrdinalIgnoreCase))
+            {
+                return TraitOperatingSystem.Android;
+            }
+
+            if (assemblyNamespace.Contains(".iOS", StringComparison.OrdinalIgnoreCase))
+            {
+                return TraitOperatingSystem.IOS;
+            }
+
+            if (assemblyNamespace.Contains(".Linux", StringComparison.OrdinalIgnoreCase))
+            {
+                return TraitOperatingSystem.Linux;
+            }
+
+            if (assemblyNamespace.Contains(".Core", StringComparison.OrdinalIgnoreCase))
+            {
+                return TraitOperatingSystem.Core;
+            }
+
+            return TraitOperatingSystem.Unknown;
+        }
+
+        /// <summary>Gets the type of the trait test.</summary>
+        /// <param name="type">The type.</param>
+        /// <returns>TraitTestType.</returns>
+        /// <exception cref="ArgumentNullException">type of class.</exception>
+        public static TraitTestType GetTraitTestType(this Type type)
+        {
+            if (type == null)
+            {
+                throw new ArgumentNullException(nameof(type));
+            }
+
+            var getDisplayFullName = type.GetDisplayFullName();
+
+            if (getDisplayFullName.Contains(".Unit", StringComparison.OrdinalIgnoreCase))
+            {
+                return TraitTestType.Unit;
+            }
+
+            if (getDisplayFullName.Contains(".Integration", StringComparison.OrdinalIgnoreCase))
+            {
+                return TraitTestType.Integration;
+            }
+
+            if (getDisplayFullName.Contains(".Local", StringComparison.OrdinalIgnoreCase))
+            {
+                return TraitTestType.Local;
+            }
+
+            return TraitTestType.Unknown;
         }
 
         /// <summary>Determines whether [has platform attribute] [the specified type].</summary>
@@ -75,38 +134,6 @@ namespace PureActive.Core.Test.XUnit.Extensions
         /// <returns>
         ///   <c>true</c> if [has platform attribute] [the specified type]; otherwise, <c>false</c>.</returns>
         public static bool HasPlatformTraitAttribute(this Type type) => !(type.GetPlatformTraitAttribute() is null);
-
-        /// <summary>Gets the operating system trait.</summary>
-        /// <param name="type">The type.</param>
-        /// <returns>TraitOperatingSystem.</returns>
-        public static TraitOperatingSystem GetTraitOperatingSystem(this Type type)
-        {
-            foreach (KeyValuePair<string, string> pair in GetPlatformTraits(type))
-            {
-                if (Enum.TryParse(pair.Value, true, out TraitOperatingSystem traitOperatingSystem))
-                {
-                    return traitOperatingSystem;
-                }
-            }
-
-            return TraitOperatingSystem.Unknown;
-        }
-
-        /// <summary>Gets the type of test.</summary>
-        /// <param name="type">The type.</param>
-        /// <returns>TraitTestType.</returns>
-        public static TraitTestType GetTraitTestType(this Type type)
-        {
-            foreach (KeyValuePair<string, string> pair in GetPlatformTraits(type))
-            {
-                if (Enum.TryParse(pair.Value, true, out TraitTestType traitTestType))
-                {
-                    return traitTestType;
-                }
-            }
-
-            return TraitTestType.Unknown;
-        }
 
         /// <summary>
         /// Gets the display name of the full.

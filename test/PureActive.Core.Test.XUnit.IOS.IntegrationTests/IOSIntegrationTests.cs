@@ -16,7 +16,6 @@
 namespace PureActive.Core.Test.XUnit.IOS.IntegrationTests
 {
     using System;
-    using System.Collections.Generic;
     using FluentAssertions;
     using PureActive.Core.Test.XUnit.Extensions;
     using PureActive.Core.Test.XUnit.Traits;
@@ -41,15 +40,6 @@ namespace PureActive.Core.Test.XUnit.IOS.IntegrationTests
         public void IOSIntegrationTests_HasPlatformTraitAttribute()
         {
             this.testType.HasPlatformTraitAttribute().Should().BeTrue();
-        }
-
-        [Fact]
-        public void IOSIntegrationTests_GetPlatformTraits()
-        {
-            foreach (KeyValuePair<string, string> pair in this.testType.GetPlatformTraits())
-            {
-                this.testOutputHelper.WriteLine($"{pair.Key}: {pair.Value}");
-            }
         }
 
         [Fact]

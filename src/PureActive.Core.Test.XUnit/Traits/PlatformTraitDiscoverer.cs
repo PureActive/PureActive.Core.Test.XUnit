@@ -40,6 +40,9 @@ namespace PureActive.Core.Test.XUnit.Traits
             yield return new KeyValuePair<string, string>("Category", GetTraitTestTypeString(traitAttribute));
         }
 
+        /// <summary>Gets the operating system string.</summary>
+        /// <param name="traitAttribute">The trait attribute.</param>
+        /// <returns>System.String.</returns>
         private static string GetOperatingSystemString(IAttributeInfo traitAttribute) => GetOperatingSystemTrait(traitAttribute).ToString();
 
         /// <summary>
@@ -51,46 +54,13 @@ namespace PureActive.Core.Test.XUnit.Traits
         private static TraitOperatingSystem GetOperatingSystemTrait(IAttributeInfo traitAttribute)
         {
             var ctorArgs = traitAttribute.GetConstructorArguments().Cast<Type>().ToList();
-            var assemblyNamespace = ctorArgs[0].GetAssemblyNamespace();
 
-            if (assemblyNamespace.Contains(".Windows", StringComparison.OrdinalIgnoreCase))
-            {
-                return TraitOperatingSystem.Windows;
-            }
-
-            if (assemblyNamespace.Contains(".MacOS", StringComparison.OrdinalIgnoreCase))
-            {
-                return TraitOperatingSystem.MacOS;
-            }
-
-            if (assemblyNamespace.Contains(".OSX", StringComparison.OrdinalIgnoreCase))
-            {
-                return TraitOperatingSystem.MacOS;
-            }
-
-            if (assemblyNamespace.Contains(".Android", StringComparison.OrdinalIgnoreCase))
-            {
-                return TraitOperatingSystem.Android;
-            }
-
-            if (assemblyNamespace.Contains(".iOS", StringComparison.OrdinalIgnoreCase))
-            {
-                return TraitOperatingSystem.IOS;
-            }
-
-            if (assemblyNamespace.Contains(".Linux", StringComparison.OrdinalIgnoreCase))
-            {
-                return TraitOperatingSystem.Linux;
-            }
-
-            if (assemblyNamespace.Contains(".Core", StringComparison.OrdinalIgnoreCase))
-            {
-                return TraitOperatingSystem.Core;
-            }
-
-            return TraitOperatingSystem.Unknown;
+            return ctorArgs[0].GetTraitOperatingSystem();
         }
 
+        /// <summary>Gets the trait test type string.</summary>
+        /// <param name="traitAttribute">The trait attribute.</param>
+        /// <returns>System.String.</returns>
         private static string GetTraitTestTypeString(IAttributeInfo traitAttribute) =>
             GetTraitTestType(traitAttribute).ToString();
 
@@ -103,24 +73,8 @@ namespace PureActive.Core.Test.XUnit.Traits
         private static TraitTestType GetTraitTestType(IAttributeInfo traitAttribute)
         {
             var ctorArgs = traitAttribute.GetConstructorArguments().Cast<Type>().ToList();
-            var getDisplayFullName = ctorArgs[0].GetDisplayFullName();
 
-            if (getDisplayFullName.Contains(".Unit", StringComparison.OrdinalIgnoreCase))
-            {
-                return TraitTestType.Unit;
-            }
-
-            if (getDisplayFullName.Contains(".Integration", StringComparison.OrdinalIgnoreCase))
-            {
-                return TraitTestType.Integration;
-            }
-
-            if (getDisplayFullName.Contains(".Local", StringComparison.OrdinalIgnoreCase))
-            {
-                return TraitTestType.Local;
-            }
-
-            return TraitTestType.Unknown;
+            return ctorArgs[0].GetTraitTestType();
         }
     }
 }

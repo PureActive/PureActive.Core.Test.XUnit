@@ -16,7 +16,6 @@
 namespace PureActive.Core.Test.XUnit.Foo.Tests
 {
     using System;
-    using System.Collections.Generic;
     using FluentAssertions;
     using PureActive.Core.Test.XUnit.Extensions;
     using PureActive.Core.Test.XUnit.Traits;
@@ -41,15 +40,6 @@ namespace PureActive.Core.Test.XUnit.Foo.Tests
         public void FooTests_HasPlatformTraitAttribute()
         {
             this.testType.HasPlatformTraitAttribute().Should().BeTrue();
-        }
-
-        [Fact]
-        public void FooTests_GetPlatformTraits()
-        {
-            foreach (KeyValuePair<string, string> pair in this.testType.GetPlatformTraits())
-            {
-                this.testOutputHelper.WriteLine($"{pair.Key}: {pair.Value}");
-            }
         }
 
         [Fact]
