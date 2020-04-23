@@ -55,10 +55,15 @@ namespace PureActive.Core.Test.XUnit.Extensions
         {
             if (type == null)
             {
-                throw new ArgumentNullException(nameof(type));
+                return TraitOperatingSystem.Unknown;
             }
 
             var assemblyNamespace = type.GetAssemblyNamespace();
+
+            if (string.IsNullOrEmpty(assemblyNamespace))
+            {
+                return TraitOperatingSystem.Unknown;
+            }
 
             if (assemblyNamespace.Contains(".Windows", StringComparison.OrdinalIgnoreCase))
             {
@@ -106,10 +111,15 @@ namespace PureActive.Core.Test.XUnit.Extensions
         {
             if (type == null)
             {
-                throw new ArgumentNullException(nameof(type));
+                return TraitTestType.Unknown;
             }
 
             var getDisplayFullName = type.GetDisplayFullName();
+
+            if (string.IsNullOrEmpty(getDisplayFullName))
+            {
+                return TraitTestType.Unknown;
+            }
 
             if (getDisplayFullName.Contains(".Unit", StringComparison.OrdinalIgnoreCase))
             {
@@ -262,7 +272,7 @@ namespace PureActive.Core.Test.XUnit.Extensions
             }
 
             var assemblyName = assembly.FullName;
-            return assemblyName.SplitOnFirstDelim(',')[0];
+            return assemblyName?.SplitOnFirstDelim(',')[0] ?? string.Empty;
         }
 
         /// <summary>
