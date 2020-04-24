@@ -70,6 +70,11 @@ namespace PureActive.Core.Test.XUnit.Extensions
                 return TraitOperatingSystem.Windows;
             }
 
+            if (assemblyNamespace.Contains(".WPF", StringComparison.OrdinalIgnoreCase))
+            {
+                return TraitOperatingSystem.WPF;
+            }
+
             if (assemblyNamespace.Contains(".MacOS", StringComparison.OrdinalIgnoreCase))
             {
                 return TraitOperatingSystem.MacOS;
