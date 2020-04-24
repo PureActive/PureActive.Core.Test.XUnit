@@ -1,5 +1,5 @@
 // ***********************************************************************
-// Assembly         : PureActive.Core.Test.XUnit.WPF.UnitTests
+// Assembly         : PureActive.Core.Test.XUnit.WPF.IntegrationTests
 // Author           : SteveBu
 // Created          : 04-20-2020
 //

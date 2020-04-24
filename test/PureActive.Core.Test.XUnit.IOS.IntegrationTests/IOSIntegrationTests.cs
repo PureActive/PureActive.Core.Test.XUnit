@@ -1,5 +1,5 @@
 // ***********************************************************************
-// Assembly         : PureActive.Core.Test.XUnit.Windows.UnitTests
+// Assembly         : PureActive.Core.Test.XUnit.IOS.IntegrationTests
 // Author           : SteveBu
 // Created          : 04-20-2020
 //
