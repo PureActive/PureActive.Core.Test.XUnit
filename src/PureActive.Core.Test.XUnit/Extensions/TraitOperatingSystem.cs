@@ -30,6 +30,11 @@ namespace PureActive.Core.Test.XUnit.Extensions
         Windows,
 
         /// <summary>
+        /// Windows Presentation Framework
+        /// </summary>
+        WPF,
+
+        /// <summary>
         /// MacOS operating system
         /// </summary>
         MacOS,

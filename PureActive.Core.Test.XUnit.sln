@@ -124,6 +124,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PureActive.Core.Test.XUnit.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PureActive.Core.Test.XUnit.MacOS.UnitTests", "test\PureActive.Core.Test.XUnit.MacOS.UnitTests\PureActive.Core.Test.XUnit.MacOS.UnitTests.csproj", "{9217DF19-DF45-4A8D-9189-B704FBB7CE3E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PureActive.Core.Test.XUnit.WPF.IntegrationTests", "test\PureActive.Core.Test.XUnit.WPF.IntegrationTests\PureActive.Core.Test.XUnit.WPF.IntegrationTests.csproj", "{5E875F5F-427F-4888-81D6-47E703C43D04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PureActive.Core.Test.XUnit.WPF.UnitTests", "test\PureActive.Core.Test.XUnit.WPF.UnitTests\PureActive.Core.Test.XUnit.WPF.UnitTests.csproj", "{821A9123-0D66-4486-BF82-CE04BC318BAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -186,6 +190,14 @@ Global
 		{9217DF19-DF45-4A8D-9189-B704FBB7CE3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9217DF19-DF45-4A8D-9189-B704FBB7CE3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9217DF19-DF45-4A8D-9189-B704FBB7CE3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E875F5F-427F-4888-81D6-47E703C43D04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E875F5F-427F-4888-81D6-47E703C43D04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E875F5F-427F-4888-81D6-47E703C43D04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E875F5F-427F-4888-81D6-47E703C43D04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{821A9123-0D66-4486-BF82-CE04BC318BAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{821A9123-0D66-4486-BF82-CE04BC318BAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{821A9123-0D66-4486-BF82-CE04BC318BAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{821A9123-0D66-4486-BF82-CE04BC318BAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -211,6 +223,8 @@ Global
 		{6D9D0831-6796-4425-A6DF-0C73210DBD39} = {36CCE840-6FE5-4DB9-A8D5-8CF3CB6D342A}
 		{7EC7AC32-4310-445A-8F12-63C945BB4357} = {36CCE840-6FE5-4DB9-A8D5-8CF3CB6D342A}
 		{9217DF19-DF45-4A8D-9189-B704FBB7CE3E} = {36CCE840-6FE5-4DB9-A8D5-8CF3CB6D342A}
+		{5E875F5F-427F-4888-81D6-47E703C43D04} = {36CCE840-6FE5-4DB9-A8D5-8CF3CB6D342A}
+		{821A9123-0D66-4486-BF82-CE04BC318BAC} = {36CCE840-6FE5-4DB9-A8D5-8CF3CB6D342A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3944F6A-384B-4B0F-B93F-3BD513DC57BD}

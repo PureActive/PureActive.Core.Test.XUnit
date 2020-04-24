@@ -1,19 +1,19 @@
 // ***********************************************************************
-// Assembly         : PureActive.Core.Test.XUnit.IOS.UnitTests
+// Assembly         : PureActive.Core.Test.XUnit.WPF.IntegrationTests
 // Author           : SteveBu
 // Created          : 04-20-2020
 //
 // Last Modified By : SteveBu
 // Last Modified On : 04-20-2020
 // ***********************************************************************
-// <copyright file="IOSUnitTests.cs" company="BushChang Corporation">
+// <copyright file="WPFIntegrationTests.cs" company="BushChang Corporation">
 //     Copyright (c) BushChang Corporation. All rights reserved.
 //     Licensed under the MIT license. See LICENSE file in the project root for full license information.
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
 
-namespace PureActive.Core.Test.XUnit.IOS.UnitTests
+namespace PureActive.Core.Test.XUnit.WPF.IntegrationTests
 {
     using System;
     using FluentAssertions;
@@ -23,35 +23,35 @@ namespace PureActive.Core.Test.XUnit.IOS.UnitTests
     using Xunit.Abstractions;
 
     /// <summary>
-    /// Class IOSUnitTests.
+    /// Class WPFIntegrationTests.
     /// </summary>
-    [PlatformTrait(typeof(IOSUnitTests))]
-    public class IOSUnitTests
+    [PlatformTrait(typeof(WPFIntegrationTests))]
+    public class WPFIntegrationTests
     {
         private readonly ITestOutputHelper testOutputHelper;
-        private readonly Type testType = typeof(IOSUnitTests);
+        private readonly Type testType = typeof(WPFIntegrationTests);
 
-        public IOSUnitTests(ITestOutputHelper testOutputHelper)
+        public WPFIntegrationTests(ITestOutputHelper testOutputHelper)
         {
             this.testOutputHelper = testOutputHelper;
         }
 
         [Fact]
-        public void IOSUnitTests_HasPlatformTraitAttribute()
+        public void WPFIntegrationTests_HasPlatformTraitAttribute()
         {
             this.testType.HasPlatformTraitAttribute().Should().BeTrue();
         }
 
         [Fact]
-        public void IOSUnitTests_GetTraitOperatingSystem()
+        public void WPFIntegrationTests_GetTraitOperatingSystem()
         {
-            this.testType.GetTraitOperatingSystem().Should().Be(TraitOperatingSystem.IOS);
+            this.testType.GetTraitOperatingSystem().Should().Be(TraitOperatingSystem.WPF);
         }
 
         [Fact]
-        public void IOSUnitTests_GetTraitTestType()
+        public void WPFIntegrationTests_GetTraitTestType()
         {
-            this.testType.GetTraitTestType().Should().Be(TraitTestType.Unit);
+            this.testType.GetTraitTestType().Should().Be(TraitTestType.Integration);
         }
     }
 }
