@@ -6,13 +6,8 @@ steps:
     solution: '**/*.sln'
     configuration: $(BuildConfiguration)
     restoreNugetPackages: false
-    arguments: '/v:m /bl:"$(Build.ArtifactStagingDirectory)/build_logs/build.binlog"'
-
-- task: NuGetCommand@2
-  inputs:
-    command: 'pack'
-    packagesToPack: 'src/**/*.csproj'
-    packDestination: '$(Build.ArtifactStagingDirectory)/Packages'
+    arguments: '/t:build,pack /v:m /bl:"$(Build.ArtifactStagingDirectory)/build_logs/build.binlog"'
+    includeSymbols: true
 
 - task: DotNetCoreCLI@2
   displayName: dotnet test -f net472
