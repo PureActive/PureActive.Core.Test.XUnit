@@ -23,8 +23,6 @@ jobs:
       fail-fast: false
       matrix:
         os:
-        - ubuntu-18.04
-        - macos-latest
         - windows-latest
 
     steps:
@@ -40,7 +38,7 @@ jobs:
       run: azure-pipelines/variables/_pipelines.ps1
       shell: pwsh
     - name: build
-      run: dotnet build --no-restore -c ${{ env.BUILDCONFIGURATION }} /v:m /bl:"bin/build_logs/build.binlog"
+      run: dotnet msbuild --no-restore -c ${{ env.BUILDCONFIGURATION }} /v:m /bl:"bin/build_logs/build.binlog"
     - name: pack
       run: dotnet pack --no-build -c ${{ env.BUILDCONFIGURATION }} /v:m /bl:"bin/build_logs/pack.binlog"
     - name: test
