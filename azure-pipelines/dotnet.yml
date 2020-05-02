@@ -1,7 +1,7 @@
 steps:
 
-- script: dotnet msbuild --no-restore -c $(BuildConfiguration) /v:m /bl:"$(Build.ArtifactStagingDirectory)/build_logs/build.binlog"
-  displayName: dotnet build
+- script: dotnet msbuild -c $(BuildConfiguration) /v:m /bl:"$(Build.ArtifactStagingDirectory)/build_logs/build.binlog"
+  displayName: msbuild
 
 - script: dotnet pack --no-build -c $(BuildConfiguration) /v:m /bl:"$(Build.ArtifactStagingDirectory)/build_logs/pack.binlog"
   displayName: dotnet pack
