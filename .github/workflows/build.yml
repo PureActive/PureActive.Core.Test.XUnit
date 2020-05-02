@@ -23,8 +23,6 @@ jobs:
       fail-fast: false
       matrix:
         os:
-        - ubuntu-18.04
-        - macos-latest
         - windows-latest
 
     steps:
@@ -39,10 +37,10 @@ jobs:
     - name: Set pipeline variables based on source
       run: azure-pipelines/variables/_pipelines.ps1
       shell: pwsh
-    - name: build
-      run: dotnet build --no-restore -c ${{ env.BUILDCONFIGURATION }} /v:m /bl:"bin/build_logs/build.binlog"
-    - name: pack
-      run: dotnet pack --no-build -c ${{ env.BUILDCONFIGURATION }} /v:m /bl:"bin/build_logs/pack.binlog"
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.0
+    - name: msbuild build ${{ env.BUILDCONFIGURATION }}
+      run: msbuild /t:build,pack -restore:False -p:Configuration=${{ env.BUILDCONFIGURATION }} /v:m /bl:"bin/build_logs/build.binlog"
     - name: test
       run: dotnet test --no-build -c ${{ env.BUILDCONFIGURATION }} /bl:"bin/build_logs/test.binlog" --filter "TestCategory!=FailsInCloudTest" -v n /p:CollectCoverage=true --logger trx --settings "${{ github.workspace }}/.github/workflows/${{ runner.os }}.runsettings"
     - name: Update pipeline variables based on build outputs

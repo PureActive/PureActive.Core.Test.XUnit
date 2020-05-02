@@ -182,7 +182,9 @@ namespace PureActive.Core.Test.XUnit.Extensions
                 {
                     var partName = parts[i];
 
+#pragma warning disable CA1307 // Specify StringComparison
                     var backTickIndex = partName.IndexOf('`');
+#pragma warning restore CA1307 // Specify StringComparison
                     if (backTickIndex >= 0)
                     {
                         // Since '.' is typically used to filter log messages in a hierarchy kind of scenario,
@@ -288,7 +290,9 @@ namespace PureActive.Core.Test.XUnit.Extensions
         /// <returns>System.String[].</returns>
         private static string[] SplitOnFirstDelim(this string str, char chDelim)
         {
+#pragma warning disable CA1307 // Specify StringComparison
             return string.IsNullOrEmpty(str) ? new string[2] : ProcessSplits(str, str.IndexOf(chDelim));
+#pragma warning restore CA1307 // Specify StringComparison
         }
 
         /// <summary>
