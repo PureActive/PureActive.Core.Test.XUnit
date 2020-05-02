@@ -1,6 +1,6 @@
 steps:
 
-- script: dotnet msbuild -c $(BuildConfiguration) /v:m /bl:"$(Build.ArtifactStagingDirectory)/build_logs/build.binlog"
+- script: msbuild -restore:False -p:Configuration=$(BuildConfiguration) /v:m /bl:"$(Build.ArtifactStagingDirectory)/build_logs/build.binlog"
   displayName: msbuild
 
 - script: dotnet pack --no-build -c $(BuildConfiguration) /v:m /bl:"$(Build.ArtifactStagingDirectory)/build_logs/pack.binlog"
