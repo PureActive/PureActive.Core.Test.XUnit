@@ -1,15 +1,20 @@
 steps:
 
 - task: MSBuild@1
-  displayName: msbuild $(BuildConfiguration)
+  displayName: msbuild build $(BuildConfiguration)
   inputs:
     solution: '**/*.sln'
     configuration: $(BuildConfiguration)
     restoreNugetPackages: false
     arguments: '/v:m /bl:"$(Build.ArtifactStagingDirectory)/build_logs/build.binlog"'
 
-- script: dotnet pack --no-build -c $(BuildConfiguration) /v:m /bl:"$(Build.ArtifactStagingDirectory)/build_logs/pack.binlog"
-  displayName: dotnet pack
+ - task: MSBuild@1
+  displayName: msbuild pack $(BuildConfiguration)
+  inputs:
+    solution: '**/*.sln'
+    configuration: $(BuildConfiguration)
+    restoreNugetPackages: false
+    arguments: '-t:pack /v:m /bl:"$(Build.ArtifactStagingDirectory)/build_logs/pack.binlog"'
 
 - task: DotNetCoreCLI@2
   displayName: dotnet test -f net472
