@@ -8,7 +8,7 @@ steps:
     restoreNugetPackages: false
     arguments: '/v:m /bl:"$(Build.ArtifactStagingDirectory)/build_logs/build.binlog"'
 
- - task: MSBuild@1
+- task: MSBuild@1
   displayName: msbuild pack $(BuildConfiguration)
   inputs:
     solution: '**/*.sln'
