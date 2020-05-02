@@ -1,5 +1,5 @@
 parameters:
-  windowsPool: Hosted Windows 2019 with VS2019
+  windowsPool: Local Windows
 
 jobs:
 - job: Windows
