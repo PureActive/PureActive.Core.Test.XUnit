@@ -24,13 +24,13 @@ namespace PureActive.Core.Test.XUnit.Traits
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public sealed class PlatformTraitAttribute : Attribute, ITraitAttribute
     {
-        private readonly Type type;
+        private readonly Type? type;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PlatformTraitAttribute"/> class.
         /// </summary>
         /// <param name="type">The type.</param>
-        public PlatformTraitAttribute(Type type)
+        public PlatformTraitAttribute(Type? type)
         {
             this.type = type;
         }
