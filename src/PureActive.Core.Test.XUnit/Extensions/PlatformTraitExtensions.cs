@@ -51,58 +51,67 @@ namespace PureActive.Core.Test.XUnit.Extensions
         /// <param name="type">The type.</param>
         /// <returns>TraitOperatingSystem.</returns>
         /// <exception cref="ArgumentNullException">type of class.</exception>
-        public static TraitOperatingSystem GetTraitOperatingSystem(this Type type)
+        public static TraitOperatingSystem GetTraitOperatingSystem(this Type? type)
         {
-            if (type == null)
+            if (type is null)
             {
                 return TraitOperatingSystem.Unknown;
             }
 
-            var assemblyNamespace = type.GetAssemblyNamespace();
-
-            if (string.IsNullOrEmpty(assemblyNamespace))
+            try
             {
-                return TraitOperatingSystem.Unknown;
+                var assemblyNamespace = type.GetAssemblyNamespace();
+
+                if (string.IsNullOrEmpty(assemblyNamespace))
+                {
+                    return TraitOperatingSystem.Unknown;
+                }
+
+                if (assemblyNamespace.Contains(".Windows", StringComparison.OrdinalIgnoreCase))
+                {
+                    return TraitOperatingSystem.Windows;
+                }
+
+                if (assemblyNamespace.Contains(".WPF", StringComparison.OrdinalIgnoreCase))
+                {
+                    return TraitOperatingSystem.WPF;
+                }
+
+                if (assemblyNamespace.Contains(".MacOS", StringComparison.OrdinalIgnoreCase))
+                {
+                    return TraitOperatingSystem.MacOS;
+                }
+
+                if (assemblyNamespace.Contains(".OSX", StringComparison.OrdinalIgnoreCase))
+                {
+                    return TraitOperatingSystem.MacOS;
+                }
+
+                if (assemblyNamespace.Contains(".Android", StringComparison.OrdinalIgnoreCase))
+                {
+                    return TraitOperatingSystem.Android;
+                }
+
+                if (assemblyNamespace.Contains(".iOS", StringComparison.OrdinalIgnoreCase))
+                {
+                    return TraitOperatingSystem.IOS;
+                }
+
+                if (assemblyNamespace.Contains(".Linux", StringComparison.OrdinalIgnoreCase))
+                {
+                    return TraitOperatingSystem.Linux;
+                }
+
+                if (assemblyNamespace.Contains(".Core", StringComparison.OrdinalIgnoreCase))
+                {
+                    return TraitOperatingSystem.Core;
+                }
             }
-
-            if (assemblyNamespace.Contains(".Windows", StringComparison.OrdinalIgnoreCase))
+#pragma warning disable CA1031 // Do not catch general exception types
+            catch
+#pragma warning restore CA1031 // Do not catch general exception types
             {
-                return TraitOperatingSystem.Windows;
-            }
-
-            if (assemblyNamespace.Contains(".WPF", StringComparison.OrdinalIgnoreCase))
-            {
-                return TraitOperatingSystem.WPF;
-            }
-
-            if (assemblyNamespace.Contains(".MacOS", StringComparison.OrdinalIgnoreCase))
-            {
-                return TraitOperatingSystem.MacOS;
-            }
-
-            if (assemblyNamespace.Contains(".OSX", StringComparison.OrdinalIgnoreCase))
-            {
-                return TraitOperatingSystem.MacOS;
-            }
-
-            if (assemblyNamespace.Contains(".Android", StringComparison.OrdinalIgnoreCase))
-            {
-                return TraitOperatingSystem.Android;
-            }
-
-            if (assemblyNamespace.Contains(".iOS", StringComparison.OrdinalIgnoreCase))
-            {
-                return TraitOperatingSystem.IOS;
-            }
-
-            if (assemblyNamespace.Contains(".Linux", StringComparison.OrdinalIgnoreCase))
-            {
-                return TraitOperatingSystem.Linux;
-            }
-
-            if (assemblyNamespace.Contains(".Core", StringComparison.OrdinalIgnoreCase))
-            {
-                return TraitOperatingSystem.Core;
+                // ignored
             }
 
             return TraitOperatingSystem.Unknown;
@@ -112,33 +121,42 @@ namespace PureActive.Core.Test.XUnit.Extensions
         /// <param name="type">The type.</param>
         /// <returns>TraitTestType.</returns>
         /// <exception cref="ArgumentNullException">type of class.</exception>
-        public static TraitTestType GetTraitTestType(this Type type)
+        public static TraitTestType GetTraitTestType(this Type? type)
         {
-            if (type == null)
+            if (type is null)
             {
                 return TraitTestType.Unknown;
             }
 
-            var getDisplayFullName = type.GetDisplayFullName();
-
-            if (string.IsNullOrEmpty(getDisplayFullName))
+            try
             {
-                return TraitTestType.Unknown;
+                var getDisplayFullName = type.GetDisplayFullName();
+
+                if (string.IsNullOrEmpty(getDisplayFullName))
+                {
+                    return TraitTestType.Unknown;
+                }
+
+                if (getDisplayFullName.Contains(".Unit", StringComparison.OrdinalIgnoreCase))
+                {
+                    return TraitTestType.Unit;
+                }
+
+                if (getDisplayFullName.Contains(".Integration", StringComparison.OrdinalIgnoreCase))
+                {
+                    return TraitTestType.Integration;
+                }
+
+                if (getDisplayFullName.Contains(".Local", StringComparison.OrdinalIgnoreCase))
+                {
+                    return TraitTestType.Local;
+                }
             }
-
-            if (getDisplayFullName.Contains(".Unit", StringComparison.OrdinalIgnoreCase))
+#pragma warning disable CA1031 // Do not catch general exception types
+            catch
+#pragma warning restore CA1031 // Do not catch general exception types
             {
-                return TraitTestType.Unit;
-            }
-
-            if (getDisplayFullName.Contains(".Integration", StringComparison.OrdinalIgnoreCase))
-            {
-                return TraitTestType.Integration;
-            }
-
-            if (getDisplayFullName.Contains(".Local", StringComparison.OrdinalIgnoreCase))
-            {
-                return TraitTestType.Local;
+                // ignored
             }
 
             return TraitTestType.Unknown;
@@ -148,78 +166,90 @@ namespace PureActive.Core.Test.XUnit.Extensions
         /// <param name="type">The type.</param>
         /// <returns>
         ///   <c>true</c> if [has platform attribute] [the specified type]; otherwise, <c>false</c>.</returns>
-        public static bool HasPlatformTraitAttribute(this Type type) => !(type.GetPlatformTraitAttribute() is null);
+        public static bool HasPlatformTraitAttribute(this Type? type) => !(type?.GetPlatformTraitAttribute() is null);
 
         /// <summary>
         /// Gets the display name of the full.
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns>System.String.</returns>
-        internal static string GetDisplayFullName(this Type type)
+        internal static string GetDisplayFullName(this Type? type)
         {
             if (type is null)
             {
-                throw new ArgumentNullException(nameof(type));
+                return string.Empty;
             }
 
-            if (type.GetTypeInfo().IsGenericType)
+            try
             {
-                var fullName = type.GetGenericTypeDefinition().FullName;
-
-                if (string.IsNullOrEmpty(fullName))
+                if (type.GetTypeInfo().IsGenericType)
                 {
-                    return string.Empty;
-                }
+                    var fullName = type.GetGenericTypeDefinition().FullName;
 
-                // Nested types (public or private) have a '+' in their full name
-                var parts = fullName.Split('+');
-
-                // Handle nested generic types
-                // Examples:
-                // ConsoleApp.Program+Foo`1+Bar
-                // ConsoleApp.Program+Foo`1+Bar`1
-                for (var i = 0; i < parts.Length; i++)
-                {
-                    var partName = parts[i];
-
-#pragma warning disable CA1307 // Specify StringComparison
-                    var backTickIndex = partName.IndexOf('`');
-#pragma warning restore CA1307 // Specify StringComparison
-                    if (backTickIndex >= 0)
+                    if (string.IsNullOrEmpty(fullName))
                     {
-                        // Since '.' is typically used to filter log messages in a hierarchy kind of scenario,
-                        // do not include any generic type information as part of the name.
-                        // Example:
-                        // Microsoft.AspNetCore.Mvc -> log level set as Warning
-                        // Microsoft.AspNetCore.Mvc.ModelBinding -> log level set as Verbose
-                        partName = partName.Substring(0, backTickIndex);
+                        return string.Empty;
                     }
 
-                    parts[i] = partName;
+                    // Nested types (public or private) have a '+' in their full name
+                    var parts = fullName.Split('+');
+
+                    // Handle nested generic types
+                    // Examples:
+                    // ConsoleApp.Program+Foo`1+Bar
+                    // ConsoleApp.Program+Foo`1+Bar`1
+                    for (var i = 0; i < parts.Length; i++)
+                    {
+                        var partName = parts[i];
+
+#pragma warning disable CA1307 // Specify StringComparison
+                        var backTickIndex = partName.IndexOf('`');
+#pragma warning restore CA1307 // Specify StringComparison
+                        if (backTickIndex >= 0)
+                        {
+                            // Since '.' is typically used to filter log messages in a hierarchy kind of scenario,
+                            // do not include any generic type information as part of the name.
+                            // Example:
+                            // Microsoft.AspNetCore.Mvc -> log level set as Warning
+                            // Microsoft.AspNetCore.Mvc.ModelBinding -> log level set as Verbose
+                            partName = partName.Substring(0, backTickIndex);
+                        }
+
+                        parts[i] = partName;
+                    }
+
+                    return string.Join(".", parts);
                 }
 
-                return string.Join(".", parts);
-            }
-            else if (BuiltInTypeNames.ContainsKey(type))
-            {
-                return BuiltInTypeNames[type];
-            }
-            else
-            {
-                var fullName = type.FullName;
-
-                if (string.IsNullOrEmpty(fullName))
+                if (BuiltInTypeNames.ContainsKey(type))
                 {
-                    return string.Empty;
+                    return BuiltInTypeNames[type];
                 }
-
-                if (type.IsNested)
+                else
                 {
-                    fullName = fullName.Replace('+', '.');
-                }
+                    var fullName = type.FullName;
 
-                return fullName;
+                    if (string.IsNullOrEmpty(fullName))
+                    {
+                        return string.Empty;
+                    }
+
+                    if (type.IsNested)
+                    {
+                        fullName = fullName.Replace('+', '.');
+                    }
+
+                    return fullName;
+                }
             }
+#pragma warning disable CA1031 // Do not catch general exception types
+            catch
+#pragma warning restore CA1031 // Do not catch general exception types
+            {
+                // ignored
+            }
+
+            return string.Empty;
         }
 
         /// <summary>
@@ -227,7 +257,7 @@ namespace PureActive.Core.Test.XUnit.Extensions
         /// </summary>
         /// <param name="type">The type.</param>
         /// <returns>System.String.</returns>
-        internal static string GetAssemblyNamespace(this Type type)
+        internal static string GetAssemblyNamespace(this Type? type)
         {
             return type?.Assembly.GetNamespace() ?? string.Empty;
         }
@@ -236,11 +266,11 @@ namespace PureActive.Core.Test.XUnit.Extensions
         /// <param name="type">The type.</param>
         /// <returns>System.Nullable&lt;PlatformTraitAttribute&gt;.</returns>
         /// <exception cref="System.ArgumentNullException">type.</exception>
-        internal static PlatformTraitAttribute? GetPlatformTraitAttribute(this Type type)
+        internal static PlatformTraitAttribute? GetPlatformTraitAttribute(this Type? type)
         {
-            if (type == null)
+            if (type is null)
             {
-                throw new ArgumentNullException(nameof(type));
+                return null;
             }
 
             foreach (Attribute customAttributeData in type.GetCustomAttributes())
@@ -261,9 +291,9 @@ namespace PureActive.Core.Test.XUnit.Extensions
         /// <param name="test">The test.</param>
         /// <param name="stringComparison">The string comparison.</param>
         /// <returns><c>true</c> if [contains] [the specified test]; otherwise, <c>false</c>.</returns>
-        internal static bool Contains(this string input, string test, StringComparison stringComparison)
+        internal static bool Contains(this string? input, string? test, StringComparison stringComparison)
         {
-            if (input == null || test == null)
+            if (input is null || test is null)
             {
                 return false;
             }
@@ -271,15 +301,15 @@ namespace PureActive.Core.Test.XUnit.Extensions
             return input.IndexOf(test, stringComparison) != -1;
         }
 
-        private static string GetNamespace(this Assembly assembly)
+        private static string GetNamespace(this Assembly? assembly)
         {
             if (assembly is null)
             {
-                throw new ArgumentNullException(nameof(assembly));
+                return string.Empty;
             }
 
             var assemblyName = assembly.FullName;
-            return assemblyName?.SplitOnFirstDelim(',')[0] ?? string.Empty;
+            return assemblyName.SplitOnFirstDelim(',')[0];
         }
 
         /// <summary>
@@ -288,35 +318,11 @@ namespace PureActive.Core.Test.XUnit.Extensions
         /// <param name="str">The string.</param>
         /// <param name="chDelim">The ch delimiter.</param>
         /// <returns>System.String[].</returns>
-        private static string[] SplitOnFirstDelim(this string str, char chDelim)
+        private static string[] SplitOnFirstDelim(this string? str, char chDelim)
         {
 #pragma warning disable CA1307 // Specify StringComparison
-            return string.IsNullOrEmpty(str) ? new string[2] : ProcessSplits(str, str.IndexOf(chDelim));
+            return string.IsNullOrEmpty(str) ? new string[2] : ProcessSplits(str!, str!.IndexOf(chDelim));
 #pragma warning restore CA1307 // Specify StringComparison
-        }
-
-        /// <summary>
-        /// Splits the on last delimiter.
-        /// </summary>
-        /// <param name="str">The string.</param>
-        /// <param name="chDelim">The ch delimiter.</param>
-        /// <returns>System.String[].</returns>
-        private static string[] SplitOnLastDelim(this string str, char chDelim)
-        {
-            return string.IsNullOrEmpty(str) ? new string[2] : ProcessSplits(str, str.LastIndexOf(chDelim));
-        }
-
-        /// <summary>
-        /// Strings the after last delimiter.
-        /// </summary>
-        /// <param name="str">The string.</param>
-        /// <param name="chDelim">The ch delimiter.</param>
-        /// <returns>System.String.</returns>
-        private static string? StringAfterLastDelim(this string str, char chDelim)
-        {
-            var strings = SplitOnLastDelim(str, chDelim);
-
-            return strings.Length == 2 ? strings[1] : null;
         }
 
         /// <summary>
@@ -325,7 +331,7 @@ namespace PureActive.Core.Test.XUnit.Extensions
         /// <param name="str">The string to split.</param>
         /// <param name="indexDelim">The index delimiter.</param>
         /// <returns>System.String[].</returns>
-        private static string[] ProcessSplits(string str, int indexDelim)
+        private static string[] ProcessSplits(string? str, int indexDelim)
         {
             var strings = new string[2];
 
@@ -334,14 +340,14 @@ namespace PureActive.Core.Test.XUnit.Extensions
                 return strings;
             }
 
-            if (indexDelim != -1 && indexDelim <= str.Length - 1)
+            if (indexDelim != -1 && indexDelim <= str!.Length - 1)
             {
                 strings[0] = str.Substring(0, indexDelim).Trim();
                 strings[1] = str.Substring(indexDelim + 1).Trim();
             }
             else
             {
-                strings[0] = str.Trim();
+                strings[0] = str!.Trim();
                 strings[1] = string.Empty;
             }
 
